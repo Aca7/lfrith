@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dep60va8cdvhb"]
+
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://Asset/characters/ground_shadow.png" id="1_p7qra"]
+[ext_resource type="Texture2D" uid="uid://cwxqx8le2rrbp" path="res://Asset/obstacle/TX Plant.png" id="2_0ckic"]
+[ext_resource type="Script" path="res://addons/AtlasCutter/cutter_sprite_2d.gd" id="3_gxibi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1ndc"]
+radius = 19.0
+
+[node name="Obstacle" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0.129412, 0.129412, 0.129412, 0.45098)
+position = Vector2(0, 5.5)
+scale = Vector2(1.97619, 0.903846)
+texture = ExtResource("1_p7qra")
+
+[node name="Tree" type="Sprite2D" parent="."]
+editor_description = "Auto divides an image into frames using the transperency of the image to determine the frames."
+position = Vector2(0, -127)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0ckic")
+region_enabled = true
+region_rect = Rect2(161, 17, 95, 136)
+script = ExtResource("3_gxibi")
+rects = Array[Rect2]([Rect2(24, 14, 113, 139), Rect2(161, 17, 95, 136), Rect2(295, 31, 79, 120), Rect2(216, 185, 47, 42), Rect2(282, 186, 39, 45), Rect2(156, 190, 38, 32), Rect2(346, 190, 40, 35), Rect2(98, 195, 27, 25), Rect2(38, 198, 22, 19), Rect2(8, 394, 17, 9), Rect2(41, 394, 16, 9), Rect2(73, 394, 15, 9), Rect2(102, 394, 15, 11), Rect2(9, 426, 12, 10), Rect2(43, 427, 13, 9), Rect2(74, 427, 13, 9), Rect2(104, 428, 14, 7), Rect2(41, 458, 12, 10), Rect2(9, 459, 12, 8), Rect2(71, 459, 14, 10), Rect2(106, 459, 12, 9), Rect2(11, 491, 10, 10), Rect2(44, 491, 10, 11), Rect2(76, 493, 8, 8), Rect2(110, 495, 6, 5)])
+current_frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_c1ndc")

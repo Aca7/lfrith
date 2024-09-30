@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://qyup75konuy0"]
+
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Scene/charactor/mob/slime.tscn" id="1_6r18r"]
+[ext_resource type="Script" path="res://Script/system/title.gd" id="1_27xba"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://Asset/characters/happy_boo/happy_boo.tscn" id="2_bj263"]
+
+[node name="title" type="Node2D"]
+script = ExtResource("1_27xba")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = 87.0
+offset_right = 128.5
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start!"
+
+[node name="Slime" parent="." instance=ExtResource("1_6r18r")]
+position = Vector2(522, 497)
+scale = Vector2(3, 3)
+
+[node name="HappyBoo" parent="." instance=ExtResource("2_bj263")]
+position = Vector2(217, 509)
+scale = Vector2(3, 3)
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

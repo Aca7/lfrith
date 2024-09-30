@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt60jmi1rj1ex"]
+
+[ext_resource type="Script" path="res://Script/enemy/mob_generator.gd" id="1_xsve5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_utt38"]
+radius = 49.0102
+
+[node name="mob_generatior" type="CharacterBody2D"]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 3
+platform_floor_layers = 4294901760
+script = ExtResource("1_xsve5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_utt38")

@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjd1ederq1j1d"]
+
+[ext_resource type="Script" path="res://Script/player/player.gd" id="1_6nqvm"]
+[ext_resource type="PackedScene" uid="uid://b233bavcf4a8m" path="res://Asset/characters/sordier/soldier.tscn" id="2_jtab3"]
+[ext_resource type="PackedScene" uid="uid://g5fwlb1vnhqj" path="res://Scene/skill/gun.tscn" id="3_bueuw"]
+[ext_resource type="PackedScene" uid="uid://clb40miqhcypu" path="res://Scene/skill/archer/piercing_shot/piercing_shot.tscn" id="4_tulvj"]
+[ext_resource type="PackedScene" uid="uid://cgu5cpnjxoonj" path="res://Scene/skill/magician/fire_ball/fire_ball.tscn" id="5_k7o1x"]
+[ext_resource type="PackedScene" uid="uid://cdtwlqib6gbvr" path="res://Scene/skill/warrior/slash/slash.tscn" id="6_5ex0k"]
+[ext_resource type="PackedScene" uid="uid://dcgjorqq1wx1e" path="res://Scene/skill/warrior/stomp/stomp.tscn" id="7_ybkn4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3kql"]
+radius = 40.0
+height = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6n532"]
+radius = 47.0425
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbtua"]
+bg_color = Color(0.217426, 0.778653, 0.280288, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1b62"]
+line_spacing = 0.0
+font_size = 25
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 4
+platform_floor_layers = 4294901760
+script = ExtResource("1_6nqvm")
+
+[node name="Soldier" parent="." instance=ExtResource("2_jtab3")]
+unique_name_in_owner = true
+position = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_b3kql")
+
+[node name="HitBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 0
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -33)
+shape = SubResource("CircleShape2D_6n532")
+debug_color = Color(0.94902, 0, 0, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 9
+offset_left = -78.0
+offset_top = -163.0
+offset_right = 79.0
+offset_bottom = -126.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbtua")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 38.0
+text = "100/100
+"
+label_settings = SubResource("LabelSettings_l1b62")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="skill" type="Node2D" parent="."]
+
+[node name="Gun" parent="skill" instance=ExtResource("3_bueuw")]
+process_mode = 4
+visible = false
+position = Vector2(70, -20)
+
+[node name="Gun2" parent="skill" instance=ExtResource("3_bueuw")]
+process_mode = 4
+visible = false
+position = Vector2(-70, -20)
+
+[node name="PiercingShot" parent="skill" instance=ExtResource("4_tulvj")]
+position = Vector2(0, -41)
+
+[node name="FireBall" parent="skill" instance=ExtResource("5_k7o1x")]
+position = Vector2(0, -33)
+
+[node name="Slash" parent="skill" instance=ExtResource("6_5ex0k")]
+position = Vector2(0, -29)
+
+[node name="Stomp" parent="skill" instance=ExtResource("7_ybkn4")]
+process_mode = 4
+visible = false
+
+[connection signal="level_up" from="." to="skill/PiercingShot" method="_on_player_level_up"]
+[connection signal="level_up" from="." to="skill/FireBall" method="_on_player_level_up"]
+[connection signal="level_up" from="." to="skill/Slash" method="_on_player_level_up"]
