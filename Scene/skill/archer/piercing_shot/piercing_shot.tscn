@@ -8,7 +8,7 @@ radius = 750.0
 
 [node name="PiercingShot" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_58rks")
 
 [node name="Range" type="CollisionShape2D" parent="."]
@@ -17,15 +17,15 @@ shape = SubResource("CircleShape2D_ov4cv")
 [node name="Marker2D" type="Marker2D" parent="Range"]
 
 [node name="Bow" type="Sprite2D" parent="Range/Marker2D"]
-position = Vector2(98, 0)
-scale = Vector2(4, 4)
+position = Vector2(63, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("1_bnrsw")
 flip_h = true
 hframes = 2
 
 [node name="ShootingPoint" type="Marker2D" parent="Range/Marker2D/Bow"]
 unique_name_in_owner = true
-position = Vector2(-4, 0)
+position = Vector2(-1, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true

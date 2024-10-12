@@ -4,6 +4,8 @@ var mob_speed = 300
 var mob_health = 250
 var mob_exp = 50
 
+var mob_type = 0
+var mob_dir : Vector2
 var mob_name = "slime"
 var mob_scale = 1
 
@@ -14,13 +16,16 @@ var animator
 
 @onready var player = get_node("/root/Game/Player")
 
-#func _ready():
-	#var mob_path = "res://Scene/charactor/mob/"+mob_name+".tscn"
-	#animator = load(mob_path).instantiate()
-	#add_child(animator)
-	#animator.play_walk()
+func _ready():
+	if mob_type == 1 :
+		mob_dir = global_position.direction_to(player.global_position)
+		set_collision_layer_value(2, false)
+		set_collision_layer_value(3, true)
+		set_collision_mask_value(2, false)
+		set_collision_mask_value(3, true)
 	
-func init(speed, health, exp, name, scale):
+func init(type, speed, health, exp, name, scale):
+	mob_type = type
 	mob_speed = speed
 	mob_health = health
 	mob_exp = exp
@@ -31,9 +36,14 @@ func init(speed, health, exp, name, scale):
 	add_child(animator)
 	animator.play_walk()
 	
+	
 func _physics_process(delta):
 	if !is_mob_dead and !is_mob_konckback:
-		var direction = global_position.direction_to(player.global_position)
+		var direction : Vector2
+		if mob_type == 0:
+			direction = global_position.direction_to(player.global_position)
+		elif mob_type == 1:
+			direction = mob_dir
 
 		if direction.x < 0:
 			animator.scale = Vector2(-1, 1) * mob_scale

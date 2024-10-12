@@ -18,6 +18,7 @@ config/icon="res://Asset/icon.svg"
 [autoload]
 
 Status="*res://Script/player/status.gd"
+Data="*res://Script/system/data.gd"
 
 [display]
 
@@ -35,6 +36,7 @@ enabled=PackedStringArray("res://addons/AtlasCutter/plugin.cfg", "res://addons/v
 
 folder_colors={
 "res://Asset/": "orange",
+"res://Asset/data/": "teal",
 "res://Scene/": "gray",
 "res://Scene/skill/": "teal",
 "res://Script/": "blue",

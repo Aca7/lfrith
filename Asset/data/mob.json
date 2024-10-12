@@ -1,0 +1,38 @@
+{
+  "fan_piggy": {
+	"map_no": 1,
+	"asset_name": "fantasy_piggy",
+	"mob_type": 0,
+	"speed": 100,
+	"health": 250,
+	"exp": 60,
+	"scale": 4,
+	"able": true,
+	"kr": "오쿠",
+	"en": "orku"
+  },
+  "fan_slime": {
+	"map_no": 1,
+	"asset_name": "fantasy_slime",
+	"mob_type": 0,
+	"speed": 50,
+	"health": 400,
+	"exp": 100,
+	"scale": 1,
+	"able": true,
+	"kr": "슬라임",
+	"en": "slime"
+  },
+  "fan_bat": {
+	"map_no": 1,
+	"asset_name": "fantasy_bat",
+	"mob_type": 1,
+	"speed": 300,
+	"health": 100,
+	"exp": 50,
+	"scale": 1,
+	"able": true,
+	"kr": "배트",
+	"en": "bat"
+  }
+}

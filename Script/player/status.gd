@@ -3,7 +3,7 @@ extends Node
 var level = 1
 
 var cur_exp = 0
-var next_exp = 100
+var next_exp = 1000000
 
 var hp = 100
 var atk = 100
@@ -14,5 +14,5 @@ var crit_rate = 0
 var crit_damage = 10
 
 var skills = {
-    "fire_ball": 3
+	"fire_ball": 3
 }

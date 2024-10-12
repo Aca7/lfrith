@@ -190,4 +190,3 @@ func update(_target: int) -> void:
 func _validate_property(property):
 	if property.name == "rects":
 		property.usage &= ~PROPERTY_USAGE_EDITOR
-

@@ -3,21 +3,7 @@ extends Node2D
 signal level_up
 
 @onready var player = get_node("/root/Game/Player")
-
-## 몹 스폰 관련
-func spawn_mob():
-	var mob = preload("res://Scene/charactor/mob_generatior.tscn").instantiate()
-	if randf() < 0.5 :
-		mob.init(100, 250, 60, "piggy", 4)
-	else :
-		mob.init(50, 400, 50, "booger", 1)
-	
-	#%PathFollow2D.progress_ratio = randf()
-	mob.global_position = player.global_position + Vector2(1200, 0).rotated(randf_range(0, 2*PI))
-	add_child(mob)
-
-func _on_timer_timeout():
-	spawn_mob()
+var cur_map_no = 1
 
 #TODO: UI 코드 분리
 # 게임 오버 및 기타 UI 조작
@@ -82,7 +68,6 @@ func _on_pause_pressed() -> void:
 	$UI/StatusUI/Label.text += "크리티컬 배율 : " + str(Status.crit_damage)
 	get_tree().paused = true
 	$UI/StatusUI.visible = true
-
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false

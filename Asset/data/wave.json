@@ -1,0 +1,68 @@
+[
+	{
+		"mob": [
+			"fan_slime"
+		],
+		"mob_percent": [
+			1
+		],
+		"type": "rand",
+		"tick": 1,
+		"next_wave": 10,
+		"term": 5
+	},
+	{
+		"mob": [
+			"fan_bat"
+		],
+		"mob_percent": [
+			1
+		],
+		"type": "swarm",
+		"tick": 0.1,
+		"next_wave": 1,
+		"term": 1
+	},
+	{
+		"mob": [
+			"fan_piggy",
+			"fan_slime"
+		],
+		"mob_percent": [
+			0.5,
+			0.5
+		],
+		"type": "rand",
+		"tick": 0.7,
+		"next_wave": 20,
+		"term": 5
+	},
+	{
+		"mob": [
+			"fan_bat"
+		],
+		"mob_percent": [
+			1
+		],
+		"type": "swarm",
+		"tick": 0.05,
+		"next_wave": 1,
+		"term": 1
+	},
+	{
+		"mob": [
+			"fan_piggy",
+			"fan_slime",
+			"fan_bat"
+		],
+		"mob_percent": [
+			0.4,
+			0.4,
+			0.2
+		],
+		"type": "rand",
+		"tick": 0.5,
+		"next_wave": 9999,
+		"term": 9999
+	}
+]
